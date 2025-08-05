@@ -134,6 +134,21 @@ footer {
     width: 60px;
     margin-bottom: 15px;
 }
+.botao-hero {
+    background-color: #00bcd4;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 30px;
+    display: inline-block;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+.botao-hero:hover {
+    background-color: #00838f;
+}
+
 
 
 
