@@ -5,7 +5,7 @@ body {
 }
 
 header {
-    background-color: #006064;
+    background: linear-gradient(90deg, #006064, #00838f);
     padding: 20px 0;
     position: fixed;
     width: 100%;
@@ -82,4 +82,5 @@ footer {
 html {
     scroll-behavior: smooth;
 }
+
 
