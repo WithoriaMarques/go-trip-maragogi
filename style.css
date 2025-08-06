@@ -1,3 +1,8 @@
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+}
 /* Fonte e layout geral */
 body {
     margin: 0;
@@ -148,6 +153,7 @@ footer {
 .botao-hero:hover {
     background-color: #00838f;
 }
+
 
 
 
