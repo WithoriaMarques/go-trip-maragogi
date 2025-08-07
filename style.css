@@ -134,6 +134,22 @@ footer {
   nav li { display: block; margin: 10px 0; }
   .hero-content { padding: 20px; }
 }
+/* Estilo padrão com verde água claro */
+section {
+  background: rgba(0, 200, 150, 0.05); 
+}
+
+/* Destaque na seção de Passeios */
+#passeios {
+  background-color: #00664b; /* mesmo verde escuro do menu/rodapé */
+  color: #fff; /* para o texto ficar visível */
+}
+
+#passeios h2,
+#passeios p {
+  color: #fff; /* garante que textos principais fiquem brancos */
+}
+
 
 
 
