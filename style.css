@@ -141,7 +141,7 @@ section {
 
 /* Destaque na seção de Passeios */
 #passeios {
-  background-color: #00664b; /* mesmo verde escuro do menu/rodapé */
+background-color: #00735d; /* verde escuro do menu */
   color: #fff; /* para o texto ficar visível */
 }
 
@@ -149,6 +149,7 @@ section {
 #passeios p {
   color: #fff; /* garante que textos principais fiquem brancos */
 }
+
 
 
 
