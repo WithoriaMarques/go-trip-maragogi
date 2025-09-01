@@ -522,5 +522,77 @@ footer {
   font-size: 0.95rem;
   color: #555;
 }
+/* ========== HEADER E MENU RESPONSIVO ========== */
+header {
+  background: #00695c;
+  color: white;
+  padding: 10px 20px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+}
+
+/* Esconde botão no desktop */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Menu Desktop */
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Menu Mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #004d40;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 0;
+  }
+
+  nav ul li a {
+    font-size: 18px;
+  }
+}
+
 
 
