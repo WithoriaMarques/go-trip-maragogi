@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tábua da Maré - Go Trip Maragogi</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .tabua-section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .tabua-section:nth-child(even) {
+      background: #f8f9fa;
+    }
+
+    .tabua-section h2 {
+      font-size: 2rem;
+      color: #004d40;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .tabua-section h2::after {
+      content: "";
+      display: block;
+      width: 50%;
+      height: 3px;
+      background: #ff9800;
+      margin: 8px auto 0;
+      border-radius: 5px;
+    }
+
+    .meses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .mes-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .mes-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .mes-card img {
+      width: 100%;
+      display: block;
+      border-bottom: 2px solid #eee;
+    }
+
+    .mes-card h3 {
+      margin: 10px 0;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .modal span {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .fonte {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html"><img src="img/logo.png" alt="Go Trip Maragogi" class="logo"></a>
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html#hospedagens">Hospedagens</a></li>
+        <li><a href="index.html#passeios">Passeios</a></li>
+        <li><a href="index.html#transfer">Transfer</a></li>
+        <li><a href="tabua.html" class="active">Tábua da Maré</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 2025 -->
+    <section class="tabua-section">
+      <h2>Tábua da Maré Maragogi 2025</h2>
+      <div class="meses-grid">
+        <div class="mes-card"><img src="img/tabua/2025/janeiro.jpg" alt=""><h3>Janeiro</h3></div>
+        <div class="mes-card"><img src="img/tabua/2025/fevereiro.jpg" alt=""><h3>Fevereiro</h3></div>
+        <div class="mes-card"><img src="img/tabua/2025/marco.jpg" alt=""><h3>Março</h3></div>
+        <div class="mes-card"><img src="img/tabua/2025/abril.jpg" alt=""><h3>Abril</h3></div>
+        <div class="mes-card"><img src="img/tabua/2025/maio.jpg" alt=""><h3>Maio</h3></div>
+        <div class="mes-card"><img src="img/tabua/2025/junho.jpg" alt=""><h3>Junho</h3></div>
+        <div class="mes-card"><img src="img/tabua/2025/julho.jpg" alt=""><h3>Julho</h3></div>
+        <div class="mes-card"><img src="img/tabua/2025/agosto.jpg" alt=""><h3>Agosto</h3></div>
+        <div class="mes-card"><img src="img/tabua/2025/setembro.jpg" alt=""><h3>Setembro</h3></div>
+        <div class="mes-card"><img src="img/tabua/2025/outubro.jpg" alt=""><h3>Outubro</h3></div>
+        <div class="mes-card"><img src="img/tabua/2025/novembro.jpg" alt=""><h3>Novembro</h3></div>
+        <div class="mes-card"><img src="img/tabua/2025/dezembro.jpg" alt=""><h3>Dezembro</h3></div>
+      </div>
+    </section>
+
+    <!-- 2026 -->
+    <section class="tabua-section">
+      <h2>Tábua da Maré Maragogi 2026</h2>
+      <div class="meses-grid">
+        <div class="mes-card"><img src="img/tabua/2026/janeiro.jpg" alt=""><h3>Janeiro</h3></div>
+        <div class="mes-card"><img src="img/tabua/2026/fevereiro.jpg" alt=""><h3>Fevereiro</h3></div>
+        <div class="mes-card"><img src="img/tabua/2026/marco.jpg" alt=""><h3>Março</h3></div>
+        <div class="mes-card"><img src="img/tabua/2026/abril.jpg" alt=""><h3>Abril</h3></div>
+        <div class="mes-card"><img src="img/tabua/2026/maio.jpg" alt=""><h3>Maio</h3></div>
+        <div class="mes-card"><img src="img/tabua/2026/junho.jpg" alt=""><h3>Junho</h3></div>
+        <div class="mes-card"><img src="img/tabua/2026/julho.jpg" alt=""><h3>Julho</h3></div>
+        <div class="mes-card"><img src="img/tabua/2026/agosto.jpg" alt=""><h3>Agosto</h3></div>
+        <div class="mes-card"><img src="img/tabua/2026/setembro.jpg" alt=""><h3>Setembro</h3></div>
+        <div class="mes-card"><img src="img/tabua/2026/outubro.jpg" alt=""><h3>Outubro</h3></div>
+        <div class="mes-card"><img src="img/tabua/2026/novembro.jpg" alt=""><h3>Novembro</h3></div>
+        <div class="mes-card"><img src="img/tabua/2026/dezembro.jpg" alt=""><h3>Dezembro</h3></div>
+      </div>
+    </section>
+
+    <p class="fonte">Fonte: CHM – Centro de Hidrografia da Marinha – Marinha do Brasil</p>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <span id="close">&times;</span>
+    <img id="modal-img" src="">
+  </div>
+
+  <script>
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
+    const close = document.getElementById("close");
+
+    document.querySelectorAll(".mes-card img").forEach(img => {
+      img.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+      });
+    });
+
+    close.onclick = () => modal.style.display = "none";
+    modal.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+  </script>
+</body>
+</html>
