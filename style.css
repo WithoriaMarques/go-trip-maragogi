@@ -594,5 +594,35 @@ nav ul li a {
   }
 }
 
+/* Garante que o conteúdo não fique colado no topo */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #00695c; /* verde da sua identidade */
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Centraliza os itens do menu */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 60px; /* ajuste conforme sua logo */
+}
+
+/* Espaço para o conteúdo não colar no header */
+main {
+  margin-top: 100px;
+}
+
 
 
