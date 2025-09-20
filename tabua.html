@@ -34,10 +34,23 @@
     }
 
     .meses-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-    }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* sempre 4 colunas */
+  gap: 20px;
+}
+
+/* Responsividade para celular */
+@media (max-width: 1024px) {
+  .meses-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */
+  }
+}
+
+@media (max-width: 600px) {
+  .meses-grid {
+    grid-template-columns: 1fr; /* 1 coluna no celular */
+  }
+}
 
     .mes-card {
       background: white;
