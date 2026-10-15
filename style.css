@@ -1,95 +1,2880 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap');
 
-
-
 /* =========================
-
    style.css (com gallery)
-
    Substitua o arquivo atual por este
-
    ========================= */
 
-
-
 /* Geral e Reset */
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-
-
 body {
-
   font-family: 'Poppins', sans-serif;
-
   background-color: #fdfdfd;
-
   color: #333;
-
   line-height: 1.6;
-
 }
-
-
 
 .container { max-width: 1200px; margin: auto; padding: 0 20px; }
 
-
-
 /* Menu fixo */
-
 header {
-
   background: #006064;
-
   position: fixed;
-
   width: 100%;
-
   top: 0;
-
   z-index: 100;
-
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo { height: 50px; }
+nav ul { list-style: none; }
+nav li { display: inline-block; margin: 0 15px; }
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+nav a:hover { color: #ffeb3b; }
 
+/* Hero / capa (index) */
+.hero {
+  background-image: url('DJI_1457.JPG');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+.hero-content {
+  background: rgba(0,0,0,0.4);
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 700px;
+}
+.hero h1 { font-size: 48px; margin-bottom: 20px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+.hero p { font-size: 20px; margin-bottom: 30px; color: #f5f5f5; }
+.btn-cta {
+  background-color: #ff9800;
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+.btn-cta:hover {
+  background-color: #f57c00;
+  transform: scale(1.05);
+}
+
+/* Seções */
+section {
+  padding: 100px 0;
+  text-align: center;
+  background: rgba(0, 200, 150, 0.05); /* verde água claro (padrão) */
+}
+section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #006064;
+  position: relative;
+}
+section h2::after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background: #ff9800;
+  display: block;
+  margin: 10px auto 0;
+}
+
+/* Sobre */
+#sobre p { max-width: 800px; margin: 20px auto; font-size: 18px; }
+
+/* Cards gerais (hospedagens e lista) */
+.grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+.card-hospedagem, .card-servico {
+  background: white;
+  padding: 20px;
+  width: 280px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+.card-hospedagem img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.card-servico h3 { font-size: 20px; margin-bottom: 10px; }
+.card-servico p { font-size: 16px; }
+.card-hospedagem:hover, .card-servico:hover {
+  transform: translateY(-10px);
+}
+
+/* Contato */
+#contato p { margin: 10px 0; font-size: 18px; }
+#contato .contatos-list { display:inline-block; text-align:left; margin-top:15px; }
+#contato .contatos-list p { margin:8px 0; font-size:18px; }
+
+/* Rodapé */
+footer {
+  background: #006064;
+  color: white;
+  padding: 40px 20px;
+  font-size: 16px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .grid { flex-direction: column; }
+  nav li { display: block; margin: 10px 0; }
+  .hero-content { padding: 20px; }
+}
+
+/* ===========================
+   PASSEIOS: degradê + cards
+   =========================== */
+#passeios {
+  background: linear-gradient(135deg, #00695c, #004d40); /* degradê verde escuro */
+  color: #fff;
+}
+#passeios h2, #passeios p { color: #fff; }
+
+/* cards para sessão passeios (glass look) */
+#passeios .card-servico {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+}
+
+/* ===========================
+   ESTILOS PARA PÁGINAS INTERNAS (passeios/*)
+   =========================== */
+
+.passeio-hero {
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  position: relative;
+}
+.passeio-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+.passeio-hero .hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  padding: 40px;
+  text-align: center;
+}
+.passeio-hero h1 { font-size: 40px; margin-bottom: 10px; }
+.passeio-hero p { font-size: 18px; max-width: 900px; margin: 0 auto; }
+
+/* Galeria (grid de miniaturas) */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 30px;
+}
+.gallery img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transition: transform .2s ease;
+}
+.gallery img:hover { transform: translateY(-6px); }
+
+/* Modal / lightbox simples */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.modal.show { display: flex; }
+.modal img { max-width: 95%; max-height: 85%; border-radius: 6px; }
+
+/* botão fechar do modal */
+.modal .close {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* botão voltar / link */
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #006064;
+  background: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* pequenos ajustes em mobile para galeria */
+@media (max-width: 480px) {
+  .passeio-hero { height: 40vh; }
+  .gallery img { height: 110px; }
+}
+.contato {
+  background-color: #145c44; /* verde escuro */
+  color: #fff;
+  padding: 50px 20px;
+}
+
+.contato .container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.contato h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  border-bottom: 2px solid #1dd1a1;
+  padding-bottom: 5px;
+}
+
+.contato p, .contato a {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.contato a:hover {
+  color: #1dd1a1;
+}
+
+.contato ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contato ul li {
+  margin-bottom: 8px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #1dd1a1;
+  padding: 5px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icons img:hover {
+  background-color: #10ac84;
+  transform: scale(1.1);
+}
+
+footer {
+  background-color: #0e3d2e;
+  color: #fff;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 14px;
+}
+.passeios-section {
+  background-color: #d8f7f1;
+  padding: 60px 0;
+}
+
+.passeios-titulo {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #004d40;
+}
+
+.passeios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.passeio-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.passeio-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.passeio-card h3 {
+  margin: 0;
+  padding: 15px;
+  font-size: 18px;
+  background: rgba(0, 77, 64, 0.85);
+  color: white;
+  text-align: center;
+}
+
+.passeio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.passeio-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-hospedagem {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  width: 320px; /* aumentei um pouco */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hospedagem img {
+  width: 100%;
+  height: 220px; /* altura fixa para padronizar */
+  object-fit: cover; /* recorta mantendo proporção */
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.card-hospedagem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* HERO CARROSSEL */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+/* Conteúdo em cima do carrossel */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #f9a825;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: background 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background: #ff8f00;
+}
+/* Transfer Section */
+#transfer {
+  padding: 60px 20px;
+  background: #f4fdfd;
+  text-align: center;
+}
+
+#transfer h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #004d40;
+  position: relative;
+}
+
+#transfer .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.card-transfer {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: transform 0.3s ease;
+}
+
+.card-transfer:hover {
+  transform: translateY(-5px);
+}
+
+.card-transfer img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.card-transfer h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #00695c;
+}
+
+.card-transfer p {
+  font-size: 0.95rem;
+  color: #555;
+}
+/* ========== HEADER E MENU RESPONSIVO ========== */
+header {
+  background: #00695c;
+  color: white;
+  padding: 10px 20px;
 }
 
 .nav-container {
-
   display: flex;
-
-  align-items: center;
-
   justify-content: space-between;
-
+  align-items: center;
 }
 
-.logo { height: 50px; }
+.logo {
+  height: 60px;
+}
 
-nav ul { list-style: none; }
-
-nav li { display: inline-block; margin: 0 15px; }
-
-nav a {
-
+/* Esconde botão no desktop */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
   color: white;
-
-  text-decoration: none;
-
-  font-weight: 600;
-
-  transition: color 0.3s ease;
-
+  cursor: pointer;
 }
 
+/* Menu Desktop */
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Menu Mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #004d40;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 0;
+  }
+
+  nav ul li a {
+    font-size: 18px;
+  }
+}
+
+/* Garante que o conteúdo não fique colado no topo */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #00695c; /* verde da sua identidade */
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Centraliza os itens do menu */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 60px; /* ajuste conforme sua logo */
+}
+
+/* Espaço para o conteúdo não colar no header */
+main {
+  margin-top: 100px;
+}
+/* HERO RESPONSIVO */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.carousel {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CONTEÚDO SOBRE O CARROSSEL */
+.hero-content {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 10;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+/* BOTÃO "PLANEJE SUA VIAGEM" */
+.btn-reserva {
+  background-color: #ffffffcc;
+  color: #005e80;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-reserva:hover {
+  background-color: #00a2c7;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* ONDINHAS */
+.waves {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.waves svg {
+  position: relative;
+  display: block;
+  width: calc(130% + 1.3px);
+  height: 120px;
+  animation: waveMove 10s linear infinite;
+}
+
+@keyframes waveMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .btn-reserva {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+  }
+}
+
+
+
+/* ==========================================================
+   GO TRIP MARAGOGI — UP VISUAL TROPICAL
+   Camada de melhorias: ondas, marca-d'água, animações e mobile.
+   Mantém os estilos das páginas internas já existentes.
+   ========================================================== */
+
+
+:root {
+  --gt-petroleo: #006064;
+  --gt-verde: #00796f;
+  --gt-verde-escuro: #004d40;
+  --gt-agua: #dff7f2;
+  --gt-areia: #fff8ec;
+  --gt-laranja: #ff9800;
+  --gt-texto: #264044;
+  --gt-sombra: 0 16px 40px rgba(0, 77, 64, .12);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--gt-texto);
+  background: #fffdf9;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+header {
+  background: rgba(0, 96, 100, .97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 5px 24px rgba(0, 54, 56, .16);
+  padding: 8px 20px;
+}
+
+.nav-container {
+  min-height: 68px;
+  max-width: 1320px;
+}
+
+.logo {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+}
+
+nav ul {
+  align-items: center;
+  gap: clamp(10px, 1.5vw, 24px);
+}
+
+nav li {
+  margin: 0;
+}
+
+nav ul li a {
+  position: relative;
+  display: inline-block;
+  padding: 12px 0;
+  font-size: .92rem;
+  letter-spacing: .1px;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  width: 100%;
+  height: 2px;
+  background: #ffd166;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .28s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+nav a:hover {
+  color: #ffd166;
+}
+
+/* CAPA / CARROSSEL */
+.hero {
+  isolation: isolate;
+  position: relative;
+  min-height: 650px;
+  height: min(850px, 100svh);
+  padding: 100px 22px 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #006064;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0, 43, 47, .14) 0%, rgba(0, 43, 47, .05) 40%, rgba(0, 43, 47, .30) 100%);
+}
+
+.carousel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  overflow: hidden;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  animation: gt-hero-zoom 9s ease-in-out infinite alternate;
+}
+
+.carousel-slide:not(.active) img {
+  animation: none;
+}
+
+@keyframes gt-hero-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.075); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  top: auto;
+  left: auto;
+  transform: none;
+  width: min(100%, 980px);
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 20px 50px;
+  color: #fff;
+  background: transparent;
+  border-radius: 0;
+  text-align: center;
+  text-shadow: 0 3px 20px rgba(0, 36, 39, .55);
+  animation: gt-rise-in .9s ease both;
+}
+
+.hero-content h1,
+.hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2.8rem, 7vw, 6.2rem);
+  line-height: 1.03;
+  font-weight: 900;
+  letter-spacing: clamp(1px, .35vw, 5px);
+  text-transform: uppercase;
+  margin: 0 auto 18px;
+  text-wrap: balance;
+}
+
+.hero-content p {
+  max-width: 720px;
+  margin: 0 auto 30px;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  line-height: 1.65;
+  color: #fff;
+  text-wrap: balance;
+}
+
+.btn-whatsapp,
+.btn-reserva,
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 14px 28px;
+  border: 2px solid rgba(255,255,255,.65);
+  border-radius: 999px;
+  background: var(--gt-laranja);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-shadow: none;
+  box-shadow: 0 10px 26px rgba(112, 64, 0, .25);
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.btn-whatsapp:hover,
+.btn-reserva:hover,
+.btn-cta:hover {
+  background: #f57c00;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 32px rgba(112, 64, 0, .32);
+}
+
+/* Ondas no pé da capa — funcionam mesmo sem adicionar HTML novo */
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: -5%;
+  bottom: -2px;
+  width: 110%;
+  height: 105px;
+  pointer-events: none;
+  background: #fffdf9;
+  border-radius: 48% 52% 0 0 / 38% 55% 0 0;
+  transform: rotate(-1.5deg);
+  box-shadow: 0 -18px 0 rgba(223, 247, 242, .72);
+  animation: gt-wave-drift 9s ease-in-out infinite alternate;
+}
+
+@keyframes gt-wave-drift {
+  0% { border-radius: 48% 52% 0 0 / 38% 55% 0 0; transform: translateX(-1%) rotate(-1.5deg); }
+  100% { border-radius: 56% 44% 0 0 / 54% 34% 0 0; transform: translateX(1%) rotate(1deg); }
+}
+
+@keyframes gt-rise-in {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SEÇÕES: mais leves, com formas orgânicas e marca-d'água da logo */
+section:not(.hero) {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(64px, 8vw, 108px) 22px;
+  background-color: #fffdf9;
+  overflow: hidden;
+}
+
+section:not(.hero)::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: clamp(220px, 34vw, 460px);
+  aspect-ratio: 1;
+  right: -95px;
+  top: 16%;
+  background-image: url("logo.PNG");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: .035;
+  pointer-events: none;
+  transform: rotate(-8deg);
+}
+
+section:not(.hero)::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -4%;
+  bottom: -32px;
+  width: 108%;
+  height: 58px;
+  background: var(--gt-agua);
+  opacity: .7;
+  border-radius: 50% 50% 0 0 / 55% 45% 0 0;
+  pointer-events: none;
+}
+
+section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -.7px;
+  color: var(--gt-petroleo);
+  margin-bottom: 28px;
+  text-wrap: balance;
+}
+
+section h2::after {
+  width: 76px;
+  height: 5px;
+  margin-top: 16px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, var(--gt-laranja), #ffd166);
+}
+
+#sobre {
+  background: linear-gradient(180deg, #fffdf9 0%, #f1fbf8 100%);
+}
+
+#sobre p {
+  max-width: 850px;
+  margin: 18px auto;
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.9;
+  color: #496166;
+}
+
+/* HOSPEDAGENS */
+#hospedagens {
+  background: #f1fbf8;
+}
+
+.grid {
+  align-items: stretch;
+  gap: 26px;
+}
+
+.card-hospedagem,
+.card-servico,
+.card-transfer {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 96, 100, .07);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: var(--gt-sombra);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.card-hospedagem {
+  width: min(100%, 340px);
+  padding: 12px 12px 20px;
+  text-align: left;
+}
+
+.card-hospedagem img {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 17px;
+  transition: transform .55s ease;
+}
+
+.card-hospedagem h3,
+.card-transfer h3 {
+  padding: 0 8px;
+  color: var(--gt-verde-escuro);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.card-hospedagem:hover,
+.card-servico:hover,
+.card-transfer:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 46px rgba(0, 77, 64, .18);
+}
+
+.card-hospedagem:hover img,
+.card-transfer:hover img {
+  transform: scale(1.035);
+}
+
+/* PASSEIOS: cartões fotográficos com mais impacto */
+.passeios-section,
+#passeios {
+  background: linear-gradient(145deg, #e9faf6 0%, #d3f2eb 100%);
+  color: var(--gt-texto);
+}
+
+#passeios h2,
+#passeios p,
+.passeios-titulo {
+  color: var(--gt-petroleo);
+}
+
+.passeios-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 24px;
+}
+
+.passeio-card {
+  position: relative;
+  min-height: 260px;
+  border-radius: 22px;
+  box-shadow: 0 12px 28px rgba(0, 77, 64, .13);
+  background: var(--gt-verde-escuro);
+  isolation: isolate;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.passeio-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  transition: transform .65s ease;
+}
+
+.passeio-card::after {
+  content: "";
+  position: absolute;
+  inset: 25% 0 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 45, 42, .88) 100%);
+}
+
+.passeio-card h3 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px 18px;
+  min-height: 84px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: transparent;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.35;
+  text-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+
+.passeio-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 20px 40px rgba(0, 77, 64, .2);
+}
+
+.passeio-card:hover img {
+  transform: scale(1.08);
+}
+
+/* TRANSFERS */
+#transfer {
+  background: linear-gradient(180deg, #fffdf9, #f0faf8);
+}
+
+#transfer .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.card-transfer {
+  padding: 12px 12px 20px;
+  text-align: left;
+}
+
+.card-transfer img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  transition: transform .55s ease;
+}
+
+.card-transfer p {
+  padding: 8px;
+  color: #617477;
+  line-height: 1.7;
+}
+
+/* CONTATO E RODAPÉ */
+.contato {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(135deg, #006064, #004d40);
+  padding: 70px 22px;
+}
+
+.contato::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 360px;
+  height: 360px;
+  right: -80px;
+  bottom: -100px;
+  background: url("logo.PNG") center / contain no-repeat;
+  opacity: .07;
+  filter: grayscale(1) brightness(0) invert(1);
+  pointer-events: none;
+}
+
+.contato h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  border-bottom-color: #ffd166;
+}
+
+.contato a:hover {
+  color: #ffd166;
+}
+
+.social-icons img {
+  transition: transform .3s ease, background-color .3s ease;
+}
+
+.social-icons img:hover {
+  background-color: #ffd166;
+  transform: translateY(-4px) scale(1.08);
+}
+
+footer {
+  background: #003d40;
+  padding: 18px 12px;
+}
+
+/* MENU E AJUSTES PARA TABLET/CELULAR */
+@media (max-width: 900px) {
+  nav ul {
+    gap: 12px;
+  }
+
+  nav ul li a {
+    font-size: .82rem;
+  }
+
+  .hero {
+    min-height: 590px;
+    height: 88svh;
+  }
+
+  .hero-content {
+    padding-bottom: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 8px 14px;
+  }
+
+  .nav-container {
+    min-height: 58px;
+  }
+
+  .logo {
+    height: 46px;
+  }
+
+  .menu-toggle {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,.09);
+  }
+
+  nav {
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #004d40;
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 15px 24px rgba(0,0,0,.18);
+  }
+
+  nav ul {
+    gap: 2px;
+    padding: 12px 20px 20px;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 10px 12px;
+    font-size: 1rem;
+  }
+
+  nav ul li a::after {
+    display: none;
+  }
+
+  .hero {
+    min-height: 570px;
+    height: 82svh;
+    padding: 85px 18px 115px;
+  }
+
+  .hero-content {
+    padding: 20px 8px 45px;
+  }
+
+  .hero-content h1,
+  .hero h1 {
+    font-size: clamp(2.15rem, 9vw, 3.6rem);
+    letter-spacing: 1px;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .btn-whatsapp,
+  .btn-reserva,
+  .btn-cta {
+    max-width: 100%;
+    min-height: 48px;
+    padding: 12px 20px;
+    font-size: .92rem;
+  }
+
+  .hero::after {
+    height: 70px;
+    box-shadow: 0 -12px 0 rgba(223, 247, 242, .72);
+  }
+
+  section:not(.hero) {
+    padding: 66px 18px;
+  }
+
+  .grid {
+    gap: 20px;
+  }
+
+  .card-hospedagem {
+    width: min(100%, 420px);
+  }
+
+  .passeios-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .passeio-card {
+    min-height: 220px;
+  }
+
+  .passeio-card h3 {
+    font-size: .95rem;
+    padding: 18px 12px;
+  }
+
+  .contato-grid {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 540px;
+    height: 78svh;
+  }
+
+  .hero-content h1,
+  .hero h1 {
+    font-size: clamp(1.9rem, 10vw, 2.7rem);
+  }
+
+  .passeios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .passeio-card {
+    min-height: 250px;
+  }
+
+  .card-hospedagem img {
+    height: 210px;
+  }
+
+  .card-transfer img {
+    height: 185px;
+  }
+
+  section h2 {
+    margin-bottom: 24px;
+  }
+}
+
+/* Respeita pessoas que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* =========================
+   style.css (com gallery)
+   Substitua o arquivo atual por este
+   ========================= */
+
+/* Geral e Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container { max-width: 1200px; margin: auto; padding: 0 20px; }
+
+/* Menu fixo */
+header {
+  background: #006064;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo { height: 50px; }
+nav ul { list-style: none; }
+nav li { display: inline-block; margin: 0 15px; }
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
 nav a:hover { color: #ffeb3b; }
 
-
-
 /* Hero / capa (index) */
-
 .hero {
-
   background-image: url('DJI_1457.JPG');
-
   background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+.hero-content {
+  background: rgba(0,0,0,0.4);
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 700px;
+}
+.hero h1 { font-size: 48px; margin-bottom: 20px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+.hero p { font-size: 20px; margin-bottom: 30px; color: #f5f5f5; }
+.btn-cta {
+  background-color: #ff9800;
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+.btn-cta:hover {
+  background-color: #f57c00;
+  transform: scale(1.05);
+}
+
+/* Seções */
+section {
+  padding: 100px 0;
+  text-align: center;
+  background: rgba(0, 200, 150, 0.05); /* verde água claro (padrão) */
+}
+section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #006064;
+  position: relative;
+}
+section h2::after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background: #ff9800;
+  display: block;
+  margin: 10px auto 0;
+}
+
+/* Sobre */
+#sobre p { max-width: 800px; margin: 20px auto; font-size: 18px; }
+
+/* Cards gerais (hospedagens e lista) */
+.grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+.card-hospedagem, .card-servico {
+  background: white;
+  padding: 20px;
+  width: 280px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+.card-hospedagem img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.card-servico h3 { font-size: 20px; margin-bottom: 10px; }
+.card-servico p { font-size: 16px; }
+.card-hospedagem:hover, .card-servico:hover {
+  transform: translateY(-10px);
+}
+
+/* Contato */
+#contato p { margin: 10px 0; font-size: 18px; }
+#contato .contatos-list { display:inline-block; text-align:left; margin-top:15px; }
+#contato .contatos-list p { margin:8px 0; font-size:18px; }
+
+/* Rodapé */
+footer {
+  background: #006064;
+  color: white;
+  padding: 40px 20px;
+  font-size: 16px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .grid { flex-direction: column; }
+  nav li { display: block; margin: 10px 0; }
+  .hero-content { padding: 20px; }
+}
+
+/* ===========================
+   PASSEIOS: degradê + cards
+   =========================== */
+#passeios {
+  background: linear-gradient(135deg, #00695c, #004d40); /* degradê verde escuro */
+  color: #fff;
+}
+#passeios h2, #passeios p { color: #fff; }
+
+/* cards para sessão passeios (glass look) */
+#passeios .card-servico {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+}
+
+/* ===========================
+   ESTILOS PARA PÁGINAS INTERNAS (passeios/*)
+   =========================== */
+
+.passeio-hero {
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  position: relative;
+}
+.passeio-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+.passeio-hero .hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  padding: 40px;
+  text-align: center;
+}
+.passeio-hero h1 { font-size: 40px; margin-bottom: 10px; }
+.passeio-hero p { font-size: 18px; max-width: 900px; margin: 0 auto; }
+
+/* Galeria (grid de miniaturas) */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 30px;
+}
+.gallery img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transition: transform .2s ease;
+}
+.gallery img:hover { transform: translateY(-6px); }
+
+/* Modal / lightbox simples */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.modal.show { display: flex; }
+.modal img { max-width: 95%; max-height: 85%; border-radius: 6px; }
+
+/* botão fechar do modal */
+.modal .close {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* botão voltar / link */
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #006064;
+  background: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* pequenos ajustes em mobile para galeria */
+@media (max-width: 480px) {
+  .passeio-hero { height: 40vh; }
+  .gallery img { height: 110px; }
+}
+.contato {
+  background-color: #145c44; /* verde escuro */
+  color: #fff;
+  padding: 50px 20px;
+}
+
+.contato .container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.contato h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  border-bottom: 2px solid #1dd1a1;
+  padding-bottom: 5px;
+}
+
+.contato p, .contato a {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.contato a:hover {
+  color: #1dd1a1;
+}
+
+.contato ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contato ul li {
+  margin-bottom: 8px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #1dd1a1;
+  padding: 5px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icons img:hover {
+  background-color: #10ac84;
+  transform: scale(1.1);
+}
+
+footer {
+  background-color: #0e3d2e;
+  color: #fff;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 14px;
+}
+.passeios-section {
+  background-color: #d8f7f1;
+  padding: 60px 0;
+}
+
+.passeios-titulo {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #004d40;
+}
+
+.passeios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.passeio-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.passeio-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.passeio-card h3 {
+  margin: 0;
+  padding: 15px;
+  font-size: 18px;
+  background: rgba(0, 77, 64, 0.85);
+  color: white;
+  text-align: center;
+}
+
+.passeio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.passeio-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-hospedagem {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  width: 320px; /* aumentei um pouco */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hospedagem img {
+  width: 100%;
+  height: 220px; /* altura fixa para padronizar */
+  object-fit: cover; /* recorta mantendo proporção */
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.card-hospedagem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* HERO CARROSSEL */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+/* Conteúdo em cima do carrossel */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #f9a825;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: background 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background: #ff8f00;
+}
+/* Transfer Section */
+#transfer {
+  padding: 60px 20px;
+  background: #f4fdfd;
+  text-align: center;
+}
+
+#transfer h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #004d40;
+  position: relative;
+}
+
+#transfer .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.card-transfer {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: transform 0.3s ease;
+}
+
+.card-transfer:hover {
+  transform: translateY(-5px);
+}
+
+.card-transfer img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.card-transfer h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #00695c;
+}
+
+.card-transfer p {
+  font-size: 0.95rem;
+  color: #555;
+}
+/* ========== HEADER E MENU RESPONSIVO ========== */
+header {
+  background: #00695c;
+  color: white;
+  padding: 10px 20px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+}
+
+/* Esconde botão no desktop */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Menu Desktop */
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Menu Mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #004d40;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 0;
+  }
+
+  nav ul li a {
+    font-size: 18px;
+  }
+}
+
+/* Garante que o conteúdo não fique colado no topo */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #00695c; /* verde da sua identidade */
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Centraliza os itens do menu */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 60px; /* ajuste conforme sua logo */
+}
+
+/* Espaço para o conteúdo não colar no header */
+main {
+  margin-top: 100px;
+}
+/* HERO RESPONSIVO */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.carousel {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CONTEÚDO SOBRE O CARROSSEL */
+.hero-content {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 10;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+/* BOTÃO "PLANEJE SUA VIAGEM" */
+.btn-reserva {
+  background-color: #ffffffcc;
+  color: #005e80;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-reserva:hover {
+  background-color: #00a2c7;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* ONDINHAS */
+.waves {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.waves svg {
+  position: relative;
+  display: block;
+  width: calc(130% + 1.3px);
+  height: 120px;
+  animation: waveMove 10s linear infinite;
+}
+
+@keyframes waveMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .btn-reserva {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+  }
+}
+
+
+
+/* ==========================================================
+   GO TRIP MARAGOGI — UP VISUAL TROPICAL
+   Camada de melhorias: ondas, marca-d'água, animações e mobile.
+   Mantém os estilos das páginas internas já existentes.
+   ========================================================== */
+
+
+:root {
+  --gt-petroleo: #006064;
+  --gt-verde: #00796f;
+  --gt-verde-escuro: #004d40;
+  --gt-agua: #dff7f2;
+  --gt-areia: #fff8ec;
+  --gt-laranja: #ff9800;
+  --gt-texto: #264044;
+  --gt-sombra: 0 16px 40px rgba(0, 77, 64, .12);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--gt-texto);
+  background: #fffdf9;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+header {
+  background: rgba(0, 96, 100, .97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 5px 24px rgba(0, 54, 56, .16);
+  padding: 8px 20px;
+}
+
+.nav-container {
+  min-height: 68px;
+  max-width: 1320px;
+}
+
+.logo {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+}
+
+nav ul {
+  align-items: center;
+  gap: clamp(10px, 1.5vw, 24px);
+}
+
+nav li {
+  margin: 0;
+}
+
+nav ul li a {
+  position: relative;
+  display: inline-block;
+  padding: 12px 0;
+  font-size: .92rem;
+  letter-spacing: .1px;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  width: 100%;
+  height: 2px;
+  background: #ffd166;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .28s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+nav a:hover {
+  color: #ffd166;
+}
+
+/* CAPA / CARROSSEL */
+.hero {
+  isolation: isolate;
+  position: relative;
+  min-height: 650px;
+  height: min(850px, 100svh);
+  padding: 100px 22px 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #006064;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0, 43, 47, .14) 0%, rgba(0, 43, 47, .05) 40%, rgba(0, 43, 47, .30) 100%);
+}
+
+.carousel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  overflow: hidden;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  animation: gt-hero-zoom 9s ease-in-out infinite alternate;
+}
+
+.carousel-slide:not(.active) img {
+  animation: none;
+}
+
+@keyframes gt-hero-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.075); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  top: auto;
+  left: auto;
+  transform: none;
+  width: min(100%, 980px);
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 20px 50px;
+  color: #fff;
+  background: transparent;
+  border-radius: 0;
+  text-align: center;
+  text-shadow: 0 3px 20px rgba(0, 36, 39, .55);
+  animation: gt-rise-in .9s ease both;
+}
+
+.hero-content h1,
+.hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2.8rem, 7vw, 6.2rem);
+  line-height: 1.03;
+  font-weight: 900;
+  letter-spacing: clamp(1px, .35vw, 5px);
+  text-transform: uppercase;
+  margin: 0 auto 18px;
+  text-wrap: balance;
+}
+
+.hero-content p {
+  max-width: 720px;
+  margin: 0 auto 30px;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  line-height: 1.65;
+  color: #fff;
+  text-wrap: balance;
+}
+
+.btn-whatsapp,
+.btn-reserva,
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 14px 28px;
+  border: 2px solid rgba(255,255,255,.65);
+  border-radius: 999px;
+  background: var(--gt-laranja);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-shadow: none;
+  box-shadow: 0 10px 26px rgba(112, 64, 0, .25);
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.btn-whatsapp:hover,
+.btn-reserva:hover,
+.btn-cta:hover {
+  background: #f57c00;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 32px rgba(112, 64, 0, .32);
+}
+
+/* Ondas no pé da capa — funcionam mesmo sem adicionar HTML novo */
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: -5%;
+  bottom: -2px;
+  width: 110%;
+  height: 105px;
+  pointer-events: none;
+  background: #fffdf9;
+  border-radius: 48% 52% 0 0 / 38% 55% 0 0;
+  transform: rotate(-1.5deg);
+  box-shadow: 0 -18px 0 rgba(223, 247, 242, .72);
+  animation: gt-wave-drift 9s ease-in-out infinite alternate;
+}
+
+@keyframes gt-wave-drift {
+  0% { border-radius: 48% 52% 0 0 / 38% 55% 0 0; transform: translateX(-1%) rotate(-1.5deg); }
+  100% { border-radius: 56% 44% 0 0 / 54% 34% 0 0; transform: translateX(1%) rotate(1deg); }
+}
+
+@keyframes gt-rise-in {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SEÇÕES: mais leves, com formas orgânicas e marca-d'água da logo */
+section:not(.hero) {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(64px, 8vw, 108px) 22px;
+  background-color: #fffdf9;
+  overflow: hidden;
+}
+
+section:not(.hero)::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: clamp(220px, 34vw, 460px);
+  aspect-ratio: 1;
+  right: -95px;
+  top: 16%;
+  background-image: url("logo.PNG");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: .035;
+  pointer-events: none;
+  transform: rotate(-8deg);
+}
+
+section:not(.hero)::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -4%;
+  bottom: -32px;
+  width: 108%;
+  height: 58px;
+  background: var(--gt-agua);
+  opacity: .7;
+  border-radius: 50% 50% 0 0 / 55% 45% 0 0;
+  pointer-events: none;
+}
+
+section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -.7px;
+  color: var(--gt-petroleo);
+  margin-bottom: 28px;
+  text-wrap: balance;
+}
+
+section h2::after {
+  width: 76px;
+  height: 5px;
+  margin-top: 16px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, var(--gt-laranja), #ffd166);
+}
+
+#sobre {
+  background: linear-gradient(180deg, #fffdf9 0%, #f1fbf8 100%);
+}
+
+#sobre p {
+  max-width: 850px;
+  margin: 18px auto;
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.9;
+  color: #496166;
+}
+
+/* HOSPEDAGENS */
+#hospedagens {
+  background: #f1fbf8;
+}
+
+.grid {
+  align-items: stretch;
+  gap: 26px;
+}
+
+.card-hospedagem,
+.card-servico,
+.card-transfer {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 96, 100, .07);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: var(--gt-sombra);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.card-hospedagem {
+  width: min(100%, 340px);
+  padding: 12px 12px 20px;
+  text-align: left;
+}
+
+.card-hospedagem img {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 17px;
+  transition: transform .55s ease;
+}
+
+.card-hospedagem h3,
+.card-transfer h3 {
+  padding: 0 8px;
+  color: var(--gt-verde-escuro);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.card-hospedagem:hover,
+.card-servico:hover,
+.card-transfer:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 46px rgba(0, 77, 64, .18);
+}
+
+.card-hospedagem:hover img,
+.card-transfer:hover img {
+  transform: scale(1.035);
+}
+
+/* PASSEIOS: cartões fotográficos com mais impacto */
+.passeios-section,
+#passeios {
+  background: linear-gradient(145deg, #e9faf6 0%, #d3f2eb 100%);
+  color: var(--gt-texto);
+}
+
+#passeios h2,
+#passeios p,
+.passeios-titulo {
+  color: var(--gt-petroleo);
+}
+
+.passeios-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 24px;
+}
+
+.passeio-card {
+  position: relative;
+  min-height: 260px;
+  border-radius: 22px;
+  box-shadow: 0 12px 28px rgba(0, 77, 64, .13);
+  background: var(--gt-verde-escuro);
+  isolation: isolate;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.passeio-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  transition: transform .65s ease;
+}
+
+.passeio-card::after {
+  content: "";
+  position: absolute;
+  inset: 25% 0 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 45, 42, .88) 100%);
+}
+
+.passeio-card h3 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px 18px;
+  min-height: 84px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: transparent;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.35;
+  text-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+
+.passeio-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 20px 40px rgba(0, 77, 64, .2);
+}
+
+.passeio-card:hover img {
+  transform: scale(1.08);
+}
+
+/* TRANSFERS */
+#transfer {
+  background: linear-gradient(180deg, #fffdf9, #f0faf8);
+}
+
+#transfer .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.card-transfer {
+  padding: 12px 12px 20px;
+  text-align: left;
+}
+
+.card-transfer img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  transition: transform .55s ease;
+}
+
+.card-transfer p {
+  padding: 8px;
+  color: #617477;
+  line-height: 1.7;
+}
+
+/* CONTATO E RODAPÉ */
+.contato {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(135deg, #006064, #004d40);
+  padding: 70px 22px;
+}
+
+.contato::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 360px;
+  height: 360px;
+  right: -80px;
+  bottom: -100px;
+  background: url("logo.PNG") center / contain no-repeat;
+  opacity: .07;
+  filter: grayscale(1) brightness(0) invert(1);
+  pointer-events: none;
+}
+
+.contato h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  border-bottom-color: #ffd166;
+}
+
+.contato a:hover {
+  color: #ffd166;
+}
+
+.social-icons img {
+  transition: transform .3s ease, background-color .3s ease;
+}
+
+.social-icons img:hover {
+  background-color: #ffd166;
+  transform: translateY(-4px) scale(1.08);
+}
+
+footer {
+  background: #003d40;
+  padding: 18px 12px;
+}
+
+/* MENU E AJUSTES PARA TABLET/CELULAR */
+@media (max-width: 900px) {
+  nav ul {
+    gap: 12px;
+  }
+
+  nav ul li a {
+    font-size: .82rem;
+  }
+
+  .hero {
+    min-height: 590px;
+    height: 88svh;
+  }
+
+  .hero-content {
+    padding-bottom: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 8px 14px;
+  }
+
+  .nav-container {
+    min-height: 58px;
+  }
+
+  .logo {
+    height: 46px;
+  }
+
+  .menu-toggle {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,.09);
+  }
+
+  nav {
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #004d40;
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 15px 24px rgba(0,0,0,.18);
+  }
+
+  nav ul {
+    gap: 2px;
+    padding: 12px 20px 20px;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 10px 12px;
+    font-size: 1rem;
+  }
+
+  nav ul li a::after {
+    display: none;
+  }
+
+  .hero {
+    min-height: 570px;
+    height: 82svh;
+    padding: 85px 18px 115px;
+  }
+
+  .hero-content {
+    padding: 20px 8px 45px;
+  }
+
+  .hero-content h1,
+  .hero h1 {
+    font-size: clamp(2.15rem, 9vw, 3.6rem);
+    letter-spacing: 1px;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .btn-whatsapp,
+  .btn-reserva,
+  .btn-cta {
+    max-width: 100%;
+    min-height: 48px;
+    padding: 12px 20px;
+    font-size: .92rem;
+  }
+
+  .hero::after {
+    height: 70px;
+    box-shadow: 0 -12px 0 rgba(223, 247, 242, .72);
+  }
+
+  section:not(.hero) {
+    padding: 66px 18px;
+  }
+
+  .grid {
+    gap: 20px;
+  }
+
+  .card-hospedagem {
+    width: min(100%, 420px);
+  }
+
+  .passeios-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .passeio-card {
+    min-height: 220px;
+  }
+
+  .passeio-card h3 {
+    font-size: .95rem;
+    padding: 18px 12px;
+  }
+
+  .contato-grid {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 540px;
+    height: 78svh;
+  }
+
+  .hero-content h1,
+  .hero h1 {
+    font-size: clamp(1.9rem, 10vw, 2.7rem);
+  }
+
+  .passeios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .passeio-card {
+    min-height: 250px;
+  }
+
+  .card-hospedagem img {
+    height: 210px;
+  }
+
+  .card-transfer img {
+    height: 185px;
+  }
+
+  section h2 {
+    margin-bottom: 24px;
+  }
+}
+
+/* Respeita pessoas que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
