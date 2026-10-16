@@ -357,8 +357,31 @@
   });
 </script>
 
+  
+<script>
+  const destinosCarrossel = document.getElementById("destinos-carrossel");
+  const destinosAnterior = document.querySelector(".destinos-anterior");
+  const destinosProximo = document.querySelector(".destinos-proximo");
+
+  if (destinosCarrossel && destinosAnterior && destinosProximo) {
+    destinosAnterior.addEventListener("click", () => {
+      destinosCarrossel.scrollBy({
+        left: -destinosCarrossel.clientWidth * 0.75,
+        behavior: "smooth"
+      });
+    });
+
+    destinosProximo.addEventListener("click", () => {
+      destinosCarrossel.scrollBy({
+        left: destinosCarrossel.clientWidth * 0.75,
+        behavior: "smooth"
+      });
+    });
+  }
+</script>
 </body>
 </html>
+
 
 
 
