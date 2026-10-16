@@ -2878,3 +2878,198 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* ==========================================
+   GO TRIP MARAGOGI - DESTINOS DOS SONHOS
+   Estilos exclusivos da nova seção
+   ========================================== */
+
+#destinos-sonhos.destinos-sonhos {
+  background: #f5fbf9;
+  padding: 55px 0 65px;
+  overflow: hidden;
+  text-align: left;
+}
+
+#destinos-sonhos .destinos-cabecalho {
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+#destinos-sonhos .destinos-subtitulo {
+  display: block;
+  margin-bottom: 8px;
+  color: #00796f;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+#destinos-sonhos .destinos-cabecalho h2 {
+  margin: 0 0 10px;
+  color: #064e50;
+  font-size: clamp(25px, 3vw, 36px);
+  line-height: 1.2;
+}
+
+#destinos-sonhos .destinos-cabecalho h2::after {
+  display: none;
+}
+
+#destinos-sonhos .destinos-cabecalho p {
+  margin: 0;
+  color: #526967;
+  font-size: 14px;
+}
+
+#destinos-sonhos .destinos-carrossel-wrapper {
+  position: relative;
+  padding: 0 34px;
+}
+
+#destinos-sonhos .destinos-carrossel {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 5px 0 12px;
+}
+
+#destinos-sonhos .destinos-carrossel::-webkit-scrollbar {
+  display: none;
+}
+
+#destinos-sonhos .destino-card {
+  position: relative;
+  display: block;
+  flex: 0 0 31%;
+  height: 300px;
+  min-width: 230px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #006064;
+  color: #fff;
+  text-decoration: none;
+  scroll-snap-align: start;
+  box-shadow: 0 5px 18px rgba(0, 77, 64, 0.12);
+  isolation: isolate;
+}
+
+#destinos-sonhos .destino-card::after {
+  content: "";
+  position: absolute;
+  inset: 35% 0 0;
+  z-index: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 25, 28, 0.25) 35%,
+    rgba(0, 20, 23, 0.88) 100%
+  );
+  pointer-events: none;
+}
+
+#destinos-sonhos .destino-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+#destinos-sonhos .destino-card:hover img {
+  transform: scale(1.06);
+}
+
+#destinos-sonhos .destino-legenda {
+  position: absolute;
+  z-index: 1;
+  left: 18px;
+  right: 14px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#destinos-sonhos .destino-legenda small {
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+}
+
+#destinos-sonhos .destino-legenda strong {
+  font-size: clamp(18px, 1.8vw, 24px);
+  line-height: 1.2;
+  color: #fff;
+}
+
+#destinos-sonhos .destino-seta {
+  position: absolute;
+  z-index: 1;
+  top: 16px;
+  right: 17px;
+  font-size: 20px;
+  color: #fff;
+  transition: transform 0.25s ease;
+}
+
+#destinos-sonhos .destino-card:hover .destino-seta {
+  transform: translate(3px, -3px);
+}
+
+#destinos-sonhos .destinos-seta {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  color: #006064;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.13);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+#destinos-sonhos .destinos-seta:hover {
+  background: #ff9800;
+  color: #fff;
+}
+
+#destinos-sonhos .destinos-anterior {
+  left: 0;
+}
+
+#destinos-sonhos .destinos-proximo {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  #destinos-sonhos.destinos-sonhos {
+    padding: 38px 0 45px;
+  }
+
+  #destinos-sonhos .destinos-carrossel-wrapper {
+    padding: 0;
+  }
+
+  #destinos-sonhos .destino-card {
+    flex-basis: 78%;
+    min-width: 0;
+    height: 270px;
+  }
+
+  #destinos-sonhos .destinos-seta {
+    display: none;
+  }
+
+  #destinos-sonhos .destinos-cabecalho {
+    margin-bottom: 20px;
+  }
+}
