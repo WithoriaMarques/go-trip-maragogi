@@ -3599,3 +3599,40 @@ footer {
     height: 210px;
   }
 }
+
+
+/* BOTÃO FLUTUANTE PERSONALIZADO GO TRIP */
+
+.whatsapp-gotrip {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 75px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-gotrip img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.whatsapp-gotrip:hover {
+  transform: scale(1.08);
+}
+
+@media (max-width: 768px) {
+  .whatsapp-gotrip {
+    width: 65px;
+    height: 65px;
+    right: 15px;
+    bottom: 15px;
+  }
+}
