@@ -3362,3 +3362,31 @@ footer {
     font-size: 11px;
   }
 }
+
+/* EXCURSÕES - FOTO SEM ESCURECIMENTO */
+#excursoes-gotrip .excursao-slide::after {
+  display: none;
+}
+
+/* ESCONDER TEXTOS SOBRE A IMAGEM */
+#excursoes-gotrip .excursao-conteudo span,
+#excursoes-gotrip .excursao-conteudo h3,
+#excursoes-gotrip .excursao-conteudo p {
+  display: none;
+}
+
+/* POSICIONAR SOMENTE O BOTÃO SAIBA MAIS */
+#excursoes-gotrip .excursao-conteudo {
+  top: auto;
+  bottom: 45px;
+  left: 7%;
+  right: auto;
+  transform: none;
+  max-width: none;
+}
+
+/* MANTER A FOTO NÍTIDA */
+#excursoes-gotrip .excursao-slide > img {
+  filter: none;
+  opacity: 1;
+}
