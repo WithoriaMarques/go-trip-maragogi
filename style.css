@@ -3647,10 +3647,12 @@ footer {
   margin-bottom: 0;
 }
 
+/* TAMANHO DO MASCOTE - SOBRE NÓS */
+
 #sobre .mascote-sobre video {
   display: block;
-  width: 190px;
-  max-width: 65vw;
+  width: 320px;
+  max-width: 90%;
   height: auto;
   background: transparent;
   border: none;
@@ -3661,6 +3663,8 @@ footer {
 
 @media (max-width: 768px) {
   #sobre .mascote-sobre video {
-    width: 145px;
+    width: 240px;
+    max-width: 85%;
   }
 }
+
