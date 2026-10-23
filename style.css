@@ -3679,10 +3679,17 @@ footer {
   overflow: visible;
 }
 
+/* TAMANHO DEFINITIVO DOS MASCOTES */
+
 #sobre .mascote-sobre video {
-  width: 450px !important;
+  display: block;
+  width: 600px !important;
   max-width: 95vw !important;
   height: auto !important;
+  border: none !important;
+  outline: none !important;
+  background: transparent;
+  object-fit: contain;
 }
 
 @media (max-width: 768px) {
@@ -3691,12 +3698,3 @@ footer {
     max-width: 95vw !important;
   }
 }
-
-/* TESTE VISUAL DO VIDEO DOS MASCOTES */
-#sobre .mascote-sobre video {
-  width: 600px !important;
-  max-width: 95vw !important;
-  height: auto !important;
-  outline: 5px solid red !important;
-}
-
