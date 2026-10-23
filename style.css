@@ -3698,3 +3698,9 @@ footer {
     max-width: 95vw !important;
   }
 }
+
+/* FUNDO BRANCO DA SEÇÃO SOBRE NÓS */
+
+#sobre {
+  background: #ffffff !important;
+}
