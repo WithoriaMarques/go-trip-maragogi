@@ -3390,3 +3390,212 @@ footer {
   filter: none;
   opacity: 1;
 }
+
+
+/* NOVA VITRINE DE PASSEIOS */
+
+#passeios .passeios-vitrine-titulo {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+#passeios .passeios-vitrine-titulo > span {
+  color: #00796f;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+#passeios .passeios-vitrine-titulo h2 {
+  margin: 10px 0;
+  color: #006064;
+}
+
+#passeios .passeios-vitrine-titulo p {
+  color: #526b68;
+  font-size: 14px;
+}
+
+#passeios .passeios-vitrine-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+#passeios .gt-passeio-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #dce9e5;
+  border-radius: 16px;
+  box-shadow: 0 7px 22px rgba(0, 65, 60, .09);
+  text-align: left;
+  transition: transform .25s, box-shadow .25s;
+}
+
+#passeios .gt-passeio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 65, 60, .14);
+}
+
+#passeios .gt-passeio-foto {
+  height: 185px;
+  position: relative;
+  background: linear-gradient(135deg, #006064, #00a79d);
+  overflow: hidden;
+}
+
+#passeios .gt-passeio-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#passeios .gt-passeio-sem-foto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: rgba(255,255,255,.8);
+  font-size: 42px;
+}
+
+#passeios .gt-passeio-corpo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px;
+}
+
+#passeios .gt-passeio-categoria {
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-weight: 800;
+  color: #008577;
+  text-transform: uppercase;
+}
+
+#passeios .gt-passeio-card h3 {
+  color: #064e50;
+  font-size: 19px;
+  line-height: 1.3;
+  margin: 10px 0;
+}
+
+#passeios .gt-passeio-descricao {
+  color: #5a6b68;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+#passeios .gt-passeio-lista {
+  padding: 0;
+  margin: 0 0 18px;
+  list-style: none;
+}
+
+#passeios .gt-passeio-lista li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-bottom: 9px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #52645f;
+}
+
+#passeios .gt-passeio-lista i {
+  color: #008577;
+  margin-top: 2px;
+}
+
+#passeios .gt-passeio-rodape {
+  margin-top: auto;
+  border-top: 1px solid #e1ebe7;
+  padding-top: 15px;
+}
+
+#passeios .gt-passeio-preco-label {
+  display: block;
+  font-size: 11px;
+  color: #647571;
+  margin-bottom: 5px;
+}
+
+#passeios .gt-passeio-preco {
+  display: block;
+  color: #f57c00;
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+#passeios .gt-passeio-detalhes {
+  width: 100%;
+  border: 0;
+  border-radius: 9px;
+  background: #006064;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 14px 10px;
+  cursor: pointer;
+}
+
+#passeios .gt-passeio-detalhes:hover {
+  background: #008577;
+}
+
+#passeios .gt-passeio-expandido {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 9px;
+  background: #f0f9f6;
+  color: #365a54;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+#passeios .gt-passeio-expandido[hidden] {
+  display: none;
+}
+
+#passeios .gt-passeio-whatsapp {
+  display: block;
+  margin-top: 12px;
+  padding: 11px;
+  border-radius: 8px;
+  background: #ff9800;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media (max-width: 1100px) {
+  #passeios .passeios-vitrine-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  #passeios .passeios-vitrine-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  #passeios .passeios-vitrine-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  #passeios .gt-passeio-foto {
+    height: 210px;
+  }
+}
