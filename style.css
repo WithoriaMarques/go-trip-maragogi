@@ -3073,3 +3073,292 @@ footer {
     margin-bottom: 20px;
   }
 }
+
+
+/* ==========================================
+   GO TRIP - VITRINE ROTATIVA DE EXCURSÕES
+   ========================================== */
+
+#excursoes-gotrip.excursoes-gotrip {
+  position: relative;
+  background: #f7fcfa;
+  padding: 65px 0 85px;
+  overflow: hidden;
+  text-align: left;
+}
+
+#excursoes-gotrip .excursoes-cabecalho {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+#excursoes-gotrip .excursoes-cabecalho span {
+  display: block;
+  color: #008577;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+#excursoes-gotrip .excursoes-cabecalho h2 {
+  color: #005b5c;
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+
+#excursoes-gotrip .excursoes-cabecalho h2::after {
+  display: none;
+}
+
+#excursoes-gotrip .excursoes-cabecalho p {
+  font-size: 15px;
+  color: #52716d;
+  margin: 0;
+}
+
+/* BANNER PRINCIPAL */
+
+#excursoes-gotrip .excursoes-banner {
+  position: relative;
+  height: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #006064, #009688);
+  box-shadow: 0 15px 35px rgba(0, 77, 64, 0.14);
+}
+
+#excursoes-gotrip .excursoes-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#excursoes-gotrip .excursao-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s ease, visibility 0.7s;
+}
+
+#excursoes-gotrip .excursao-slide.excursao-ativa {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+#excursoes-gotrip .excursao-slide > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#excursoes-gotrip .excursao-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 48, 50, 0.93) 0%,
+    rgba(0, 65, 67, 0.78) 40%,
+    rgba(0, 65, 67, 0.08) 100%
+  );
+  pointer-events: none;
+}
+
+#excursoes-gotrip .excursao-conteudo {
+  position: absolute;
+  z-index: 2;
+  left: 7%;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 500px;
+  color: #fff;
+}
+
+#excursoes-gotrip .excursao-conteudo span {
+  color: #b6f4d9;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+#excursoes-gotrip .excursao-conteudo h3 {
+  color: #fff;
+  font-size: clamp(30px, 4vw, 54px);
+  line-height: 1.1;
+  margin: 12px 0;
+}
+
+#excursoes-gotrip .excursao-conteudo p {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+#excursoes-gotrip .excursao-botao {
+  display: inline-block;
+  background: #ff9800;
+  color: #fff;
+  padding: 13px 28px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#excursoes-gotrip .excursao-botao:hover {
+  background: #f57c00;
+  transform: translateY(-3px);
+}
+
+/* SETAS */
+
+#excursoes-gotrip .excursao-seta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #006064;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+
+#excursoes-gotrip .excursao-anterior {
+  left: 12px;
+}
+
+#excursoes-gotrip .excursao-proxima {
+  right: 12px;
+}
+
+#excursoes-gotrip .excursao-seta:hover {
+  background: #ff9800;
+  color: #fff;
+}
+
+/* QUATRO CARDS FIXOS */
+
+#excursoes-gotrip .excursoes-beneficios {
+  position: relative;
+  z-index: 6;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+  margin: -28px 18px 0;
+}
+
+#excursoes-gotrip .excursao-beneficio {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #e4eeea;
+  border-radius: 12px;
+  padding: 20px 15px;
+  text-align: left;
+  box-shadow: 0 6px 20px rgba(0, 65, 60, 0.08);
+}
+
+#excursoes-gotrip .excursao-beneficio > i {
+  color: #00796f;
+  font-size: 25px;
+  flex-shrink: 0;
+}
+
+#excursoes-gotrip .excursao-beneficio h3 {
+  font-size: 15px;
+  color: #064e50;
+  margin: 0 0 6px;
+}
+
+#excursoes-gotrip .excursao-beneficio p {
+  color: #60716d;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+  #excursoes-gotrip .excursoes-beneficios {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 18px 0 0;
+  }
+}
+
+@media (max-width: 600px) {
+  #excursoes-gotrip.excursoes-gotrip {
+    padding: 45px 0 55px;
+  }
+
+  #excursoes-gotrip .excursoes-banner {
+    height: 330px;
+    border-radius: 15px;
+  }
+
+  #excursoes-gotrip .excursao-slide::after {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 48, 50, 0.92),
+      rgba(0, 48, 50, 0.42)
+    );
+  }
+
+  #excursoes-gotrip .excursao-conteudo {
+    left: 15%;
+    right: 12%;
+  }
+
+  #excursoes-gotrip .excursao-conteudo h3 {
+    font-size: 31px;
+  }
+
+  #excursoes-gotrip .excursao-conteudo p {
+    font-size: 13px;
+  }
+
+  #excursoes-gotrip .excursao-seta {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  #excursoes-gotrip .excursao-anterior {
+    left: 4px;
+  }
+
+  #excursoes-gotrip .excursao-proxima {
+    right: 4px;
+  }
+
+  #excursoes-gotrip .excursoes-beneficios {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  #excursoes-gotrip .excursao-beneficio {
+    flex-direction: column;
+    padding: 15px 12px;
+  }
+
+  #excursoes-gotrip .excursao-beneficio h3 {
+    font-size: 13px;
+  }
+
+  #excursoes-gotrip .excursao-beneficio p {
+    font-size: 11px;
+  }
+}
