@@ -3704,3 +3704,43 @@ footer {
 #sobre {
   background: #ffffff !important;
 }
+
+/* BANDEIRAS DE IDIOMAS GO TRIP */
+
+.idiomas-gotrip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  flex-shrink: 0;
+}
+
+.idiomas-gotrip button {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  font-size: 23px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.idiomas-gotrip button:hover {
+  transform: scale(1.2);
+}
+
+.tradutor-oculto {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
+
+@media (max-width: 768px) {
+  .idiomas-gotrip {
+    gap: 5px;
+  }
+
+  .idiomas-gotrip button {
+    font-size: 21px;
+  }
+}
