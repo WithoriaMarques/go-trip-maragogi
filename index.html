@@ -445,6 +445,54 @@
     });
   }
 </script>
+  
+<!-- CARROSSEL AUTOMÁTICO DE EXCURSÕES -->
+<script>
+  (function () {
+    const vitrine = document.getElementById("excursoes-gotrip");
+
+    if (!vitrine) return;
+
+    const slidesExcursoes = vitrine.querySelectorAll(".excursao-slide");
+    const setaAnterior = vitrine.querySelector(".excursao-anterior");
+    const setaProxima = vitrine.querySelector(".excursao-proxima");
+
+    if (!slidesExcursoes.length || !setaAnterior || !setaProxima) return;
+
+    let excursaoAtual = 0;
+    let intervaloExcursoes;
+
+    function mostrarExcursao(indice) {
+      excursaoAtual =
+        (indice + slidesExcursoes.length) % slidesExcursoes.length;
+
+      slidesExcursoes.forEach((slide, i) => {
+        slide.classList.toggle("excursao-ativa", i === excursaoAtual);
+      });
+    }
+
+    function iniciarRotacao() {
+      clearInterval(intervaloExcursoes);
+
+      intervaloExcursoes = setInterval(() => {
+        mostrarExcursao(excursaoAtual + 1);
+      }, 5000);
+    }
+
+    setaAnterior.addEventListener("click", () => {
+      mostrarExcursao(excursaoAtual - 1);
+      iniciarRotacao();
+    });
+
+    setaProxima.addEventListener("click", () => {
+      mostrarExcursao(excursaoAtual + 1);
+      iniciarRotacao();
+    });
+
+    mostrarExcursao(0);
+    iniciarRotacao();
+  })();
+</script>
 </body>
 </html>
 
