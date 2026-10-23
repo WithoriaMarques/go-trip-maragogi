@@ -462,6 +462,243 @@
     iniciarRotacao();
   })();
 </script>
+
+  
+<!-- CARDS DOS PASSEIOS GO TRIP -->
+<script>
+(function () {
+  const area = document.getElementById("passeios-vitrine-grid");
+  if (!area) return;
+
+  const passeios = [
+    {
+      categoria: "Passeios de Lancha",
+      nome: "Piscinas Naturais",
+      descricao: "Mergulhe nas águas cristalinas de Maragogi e conheça um dos cenários mais paradisíacos do Brasil.",
+      itens: [
+        "Lancha compartilhada",
+        "2 paradas durante o passeio",
+        "Visita ao cartão-postal de Maragogi",
+        "Valor por pessoa"
+      ],
+      preco: "R$ 150,00",
+      tipoPreco: "Valor por pessoa",
+      imagem: ""
+    },
+    {
+      categoria: "Experiência Exclusiva",
+      nome: "Piscinas Naturais – Privativo",
+      descricao: "Um passeio exclusivo para viver momentos especiais com quem você ama.",
+      itens: [
+        "Lancha exclusiva",
+        "Até 7 pessoas",
+        "Visita ao cartão-postal de Maragogi",
+        "Mais privacidade e conforto"
+      ],
+      preco: "R$ 800,00",
+      tipoPreco: "Valor do passeio",
+      imagem: ""
+    },
+    {
+      categoria: "Passeios de Buggy",
+      nome: "Buggy – Litoral Norte",
+      descricao: "Explore as paisagens mais encantadoras do litoral norte de Maragogi.",
+      itens: [
+        "2 horas de passeio",
+        "Buggy exclusivo",
+        "Conheça 5 praias da região"
+      ],
+      preco: "R$ 320,00",
+      tipoPreco: "Valor do passeio",
+      imagem: ""
+    },
+    {
+      categoria: "Passeios de Buggy",
+      nome: "Conheça Maragogi! – Buggy",
+      descricao: "Descubra os encantos da nossa cidade em uma experiência cheia de paisagens e boas lembranças.",
+      itens: [
+        "Buggy exclusivo",
+        "3 horas de passeio",
+        "As melhores praias de Maragogi",
+        "Passeio para conhecer a cidade"
+      ],
+      preco: "R$ 500,00",
+      tipoPreco: "Valor do passeio",
+      imagem: ""
+    },
+    {
+      categoria: "Roteiro Especial",
+      nome: "Experiência Go Trip Maragogi – Buggy",
+      descricao: "Uma experiência completa para descobrir Maragogi de um jeito inesquecível!",
+      itens: [
+        "Buggy exclusivo",
+        "5 horas de passeio",
+        "City tour de buggy",
+        "Mirante da Gente e Eco Park Sol e Mar",
+        "Praia de Antunes e muito mais"
+      ],
+      preco: "R$ 850,00",
+      tipoPreco: "Valor do passeio",
+      imagem: ""
+    },
+    {
+      categoria: "Aventura sobre Rodas",
+      nome: "Rota do Giz – Quadriciclo",
+      descricao: "Prepare-se para acelerar a diversão e viver uma aventura emocionante!",
+      itens: [
+        "2h30 de passeio",
+        "Transfer incluso",
+        "Valor para 2 pessoas",
+        "Experiência de quadriciclo"
+      ],
+      preco: "R$ 370,00",
+      tipoPreco: "A partir de · 2 pessoas",
+      imagem: ""
+    },
+    {
+      categoria: "Aventura sobre Rodas",
+      nome: "Rota do Vale Encantado – Quadriciclo",
+      descricao: "Uma aventura mágica entre paisagens surpreendentes e momentos inesquecíveis.",
+      itens: [
+        "3 horas de passeio",
+        "Transfer incluso",
+        "Valor para 2 pessoas",
+        "Experiência de quadriciclo"
+      ],
+      preco: "R$ 450,00",
+      tipoPreco: "A partir de · 2 pessoas",
+      imagem: ""
+    },
+    {
+      categoria: "Rotas de Estrada",
+      nome: "São Miguel dos Milagres",
+      descricao: "Conheça um dos destinos mais desejados de Alagoas, onde a tranquilidade encontra o paraíso.",
+      itens: [
+        "7 horas de passeio",
+        "5 paradas",
+        "Praias e paisagens de São Miguel dos Milagres"
+      ],
+      preco: "R$ 650,00",
+      tipoPreco: "A partir de",
+      imagem: ""
+    },
+    {
+      categoria: "Rotas de Estrada",
+      nome: "Porto de Galinhas",
+      descricao: "Praias paradisíacas, charme e o centrinho mais badalado do litoral pernambucano!",
+      itens: [
+        "7 horas de passeio",
+        "4 paradas",
+        "Visita ao famoso centro de Porto de Galinhas"
+      ],
+      preco: "R$ 600,00",
+      tipoPreco: "A partir de",
+      imagem: ""
+    },
+    {
+      categoria: "Rotas de Estrada",
+      nome: "Praia dos Carneiros",
+      descricao: "Um verdadeiro destino dos sonhos, com paisagens que parecem ter saído de um cartão-postal.",
+      itens: [
+        "7 horas de passeio",
+        "4 paradas",
+        "Conheça um dos destinos mais encantadores de Pernambuco"
+      ],
+      preco: "R$ 500,00",
+      tipoPreco: "A partir de",
+      imagem: ""
+    },
+    {
+      categoria: "Rotas de Estrada",
+      nome: "Recife & Olinda",
+      descricao: "Uma viagem fascinante pela história, cultura e pelos encantos de Pernambuco.",
+      itens: [
+        "8 horas de passeio",
+        "5 paradas",
+        "História, cultura e turismo",
+        "Conheça dois destinos em um roteiro"
+      ],
+      preco: "R$ 1.000,00",
+      tipoPreco: "A partir de",
+      imagem: ""
+    }
+  ];
+
+  function criarElemento(tag, classe, texto) {
+    const el = document.createElement(tag);
+    if (classe) el.className = classe;
+    if (texto !== undefined) el.textContent = texto;
+    return el;
+  }
+
+  passeios.forEach((passeio) => {
+    const card = criarElemento("article", "gt-passeio-card");
+
+    const foto = criarElemento("div", "gt-passeio-foto");
+    if (passeio.imagem) {
+      const img = document.createElement("img");
+      img.src = passeio.imagem;
+      img.alt = passeio.nome;
+      img.loading = "lazy";
+      foto.appendChild(img);
+    } else {
+      const icone = criarElemento("div", "gt-passeio-sem-foto");
+      icone.innerHTML = '<i class="fas fa-camera"></i>';
+      foto.appendChild(icone);
+    }
+
+    const corpo = criarElemento("div", "gt-passeio-corpo");
+    corpo.appendChild(criarElemento("span", "gt-passeio-categoria", passeio.categoria));
+    corpo.appendChild(criarElemento("h3", "", passeio.nome));
+    corpo.appendChild(criarElemento("p", "gt-passeio-descricao", passeio.descricao));
+
+    const lista = criarElemento("ul", "gt-passeio-lista");
+    passeio.itens.forEach((item) => {
+      const li = document.createElement("li");
+      const icone = criarElemento("i", "fas fa-check-circle");
+      icone.setAttribute("aria-hidden", "true");
+      li.appendChild(icone);
+      li.appendChild(document.createTextNode(item));
+      lista.appendChild(li);
+    });
+    corpo.appendChild(lista);
+
+    const rodape = criarElemento("div", "gt-passeio-rodape");
+    rodape.appendChild(criarElemento("span", "gt-passeio-preco-label", passeio.tipoPreco));
+    rodape.appendChild(criarElemento("strong", "gt-passeio-preco", passeio.preco));
+
+    const botao = criarElemento("button", "gt-passeio-detalhes", "Detalhes do passeio →");
+    botao.type = "button";
+    botao.setAttribute("aria-expanded", "false");
+
+    const expandido = criarElemento("div", "gt-passeio-expandido");
+    expandido.hidden = true;
+    expandido.appendChild(criarElemento("p", "", passeio.descricao));
+
+    const whatsapp = criarElemento("a", "gt-passeio-whatsapp", "Consultar disponibilidade");
+    whatsapp.href = "https://wa.me/5582987012498?text=" +
+      encodeURIComponent("Olá! Gostaria de informações sobre o passeio " + passeio.nome + ".");
+    whatsapp.target = "_blank";
+    whatsapp.rel = "noopener noreferrer";
+    expandido.appendChild(whatsapp);
+
+    botao.addEventListener("click", () => {
+      const abrir = expandido.hidden;
+      expandido.hidden = !abrir;
+      botao.setAttribute("aria-expanded", String(abrir));
+      botao.textContent = abrir ? "Fechar detalhes ↑" : "Detalhes do passeio →";
+    });
+
+    rodape.appendChild(botao);
+    rodape.appendChild(expandido);
+    corpo.appendChild(rodape);
+
+    card.appendChild(foto);
+    card.appendChild(corpo);
+    area.appendChild(card);
+  });
+})();
+</script>
 </body>
 </html>
 
