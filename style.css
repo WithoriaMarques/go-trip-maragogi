@@ -3636,3 +3636,31 @@ footer {
     bottom: 15px;
   }
 }
+
+/* MASCOTE ANIMADO - SOBRE NÓS */
+
+#sobre .mascote-sobre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 18px;
+  margin-bottom: 0;
+}
+
+#sobre .mascote-sobre video {
+  display: block;
+  width: 190px;
+  max-width: 65vw;
+  height: auto;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  #sobre .mascote-sobre video {
+    width: 145px;
+  }
+}
