@@ -730,6 +730,34 @@
 </a>
 <!-- FIM DO BOTÃO FLUTUANTE -->
 
+<!-- TRADUÇÃO AUTOMÁTICA -->
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'pt',
+    includedLanguages: 'pt,en,es',
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+
+function traduzirGoTrip(idioma) {
+  const seletor = document.querySelector('.goog-te-combo');
+
+  if (!seletor) {
+    alert('O tradutor ainda está carregando. Tente novamente.');
+    return;
+  }
+
+  seletor.value = idioma;
+  seletor.dispatchEvent(new Event('change', {
+    bubbles: true
+  }));
+}
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+<!-- FIM TRADUÇÃO -->
+
 </body>
 </html>
 
