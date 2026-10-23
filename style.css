@@ -3668,3 +3668,27 @@ footer {
   }
 }
 
+/* AJUSTE DO TAMANHO DO MASCOTE */
+
+#sobre .mascote-sobre {
+  width: 100%;
+  max-width: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+#sobre .mascote-sobre video {
+  width: 450px !important;
+  max-width: 95vw !important;
+  height: auto !important;
+}
+
+@media (max-width: 768px) {
+  #sobre .mascote-sobre video {
+    width: 320px !important;
+    max-width: 95vw !important;
+  }
+}
+
