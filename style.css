@@ -3797,3 +3797,20 @@ footer {
     margin-top: 12px;
   }
 }
+
+/* AUMENTAR LOGO GO TRIP NO CABEÇALHO */
+
+header .logo {
+  width: 110px !important;
+  max-width: none !important;
+  height: auto !important;
+  object-fit: contain;
+}
+
+/* LOGO NO CELULAR */
+@media (max-width: 768px) {
+  header .logo {
+    width: 85px !important;
+    height: auto !important;
+  }
+}
