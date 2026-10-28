@@ -767,6 +767,66 @@ function traduzirGoTrip(idioma) {
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
 <!-- FIM TRADUÇÃO -->
 
+<!-- ROTAÇÃO AUTOMÁTICA - DESTINOS DOS SONHOS -->
+<script>
+(function () {
+  const carrossel = document.getElementById("destinos-carrossel");
+
+  if (!carrossel) return;
+
+  let intervaloDestinos;
+
+  function avancarDestino() {
+    const primeiroCard = carrossel.querySelector(".destino-card");
+
+    if (!primeiroCard) return;
+
+    const estilos = window.getComputedStyle(carrossel);
+    const espacamento = parseFloat(estilos.columnGap) || 0;
+    const distancia = primeiroCard.getBoundingClientRect().width + espacamento;
+
+    const chegouAoFinal =
+      carrossel.scrollLeft + carrossel.clientWidth >=
+      carrossel.scrollWidth - 5;
+
+    if (chegouAoFinal) {
+      carrossel.scrollTo({
+        left: 0,
+        behavior: "smooth"
+      });
+    } else {
+      carrossel.scrollBy({
+        left: distancia,
+        behavior: "smooth"
+      });
+    }
+  }
+
+  function iniciarDestinos() {
+    clearInterval(intervaloDestinos);
+    intervaloDestinos = setInterval(avancarDestino, 4000);
+  }
+
+  function pausarDestinos() {
+    clearInterval(intervaloDestinos);
+  }
+
+  carrossel.addEventListener("mouseenter", pausarDestinos);
+  carrossel.addEventListener("mouseleave", iniciarDestinos);
+
+  carrossel.addEventListener("touchstart", pausarDestinos, {
+    passive: true
+  });
+
+  carrossel.addEventListener("touchend", iniciarDestinos, {
+    passive: true
+  });
+
+  iniciarDestinos();
+})();
+</script>
+<!-- FIM DA ROTAÇÃO AUTOMÁTICA -->
+
 </body>
 </html>
 
