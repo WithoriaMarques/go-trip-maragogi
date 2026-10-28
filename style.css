@@ -3814,3 +3814,9 @@ header .logo {
     height: auto !important;
   }
 }
+
+/* MOVIMENTO SUAVE - DESTINOS DOS SONHOS */
+
+#destinos-carrossel {
+  scroll-behavior: smooth;
+}
