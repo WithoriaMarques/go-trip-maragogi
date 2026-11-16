@@ -565,7 +565,8 @@
       ],
       preco: "R$ 850,00",
       tipoPreco: "Valor do passeio",
-      imagem: "img/WhatsApp Image 2026-11-07 at 23.05.47.jpeg"
+imagem: "img/WhatsApp Image 2026-11-07 at 23.05.47.jpeg",
+posicaoImagem: "center top"
     },
     {
       categoria: "Aventura sobre Rodas",
@@ -665,6 +666,7 @@
       const img = document.createElement("img");
       img.src = passeio.imagem;
       img.alt = passeio.nome;
+      if (passeio.posicaoImagem) img.style.objectPosition = passeio.posicaoImagem;
       img.loading = "lazy";
       foto.appendChild(img);
     } else {
